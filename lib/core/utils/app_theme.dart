@@ -15,6 +15,8 @@ class Apptheme {
   // Page Indicator
   static const Color indicatorInactiveColor = Color(0xff53585C);
   static const Color indicatorActiveColor = Color(0xffCE7943);
+  static const Color brownColor = Color(0xff632B13);
+
   static TextStyle introtitle = GoogleFonts.roboto(
     color: Colors.white,
     fontSize: 30.sp,
