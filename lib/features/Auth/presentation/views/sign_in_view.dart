@@ -7,9 +7,9 @@ import '../../../../core/widgets/custom_button.dart';
 import '../../../../core/widgets/custom_text_field.dart';
 import '../widgets/custom_login_buttons.dart';
 
-class LoginView extends StatelessWidget {
-  const LoginView({super.key});
-  static const routeName = '/login';
+class SignInView extends StatelessWidget {
+  const SignInView({super.key});
+  static const routeName = '/sign-in';
 
   @override
   Widget build(BuildContext context) {
@@ -82,7 +82,10 @@ class LoginView extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(height: 30),
-                    const CustomLoginButtons(),
+                    const CustomLoginButtons(
+                      text1: "Don't have an account?",
+                      text2: "Sign up",
+                    ),
                   ],
                 ),
               ),

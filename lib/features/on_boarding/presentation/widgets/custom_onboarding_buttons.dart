@@ -1,4 +1,4 @@
-import 'package:caffeine_corner/features/Auth/presentation/views/login_view.dart';
+import 'package:caffeine_corner/features/Auth/presentation/views/sign_in_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -66,7 +66,7 @@ class CustomOnBoardingButtons extends StatelessWidget {
                   color: Apptheme.buttonBackground2Color,
                   borderRadius: 16,
                   onTap: () {
-                    Navigator.pushNamed(context, LoginView.routeName);
+                    Navigator.pushNamed(context, SignInView.routeName);
                   },
                   child: Text(
                     'Get Started',

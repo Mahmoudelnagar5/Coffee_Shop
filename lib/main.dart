@@ -1,13 +1,18 @@
+import 'package:caffeine_corner/firebase_options.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'features/Auth/presentation/views/login_view.dart';
+import 'features/Auth/presentation/views/sign_in_view.dart';
+import 'features/Auth/presentation/views/sign_up_view.dart';
 import 'features/on_boarding/presentation/views/onboarding_view.dart';
 import 'features/splash/presentation/views/splash_view.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const MyApp());
 }
 
@@ -27,8 +32,9 @@ class MyApp extends StatelessWidget {
           home: child,
           routes: {
             SplashView.routeName: (context) => const SplashView(),
-            LoginView.routeName: (context) => const LoginView(),
             OnboardingView.routeName: (context) => const OnboardingView(),
+            SignInView.routeName: (context) => const SignInView(),
+            SignUpView.routeName: (context) => const SignUpView(),
           },
         );
       },
