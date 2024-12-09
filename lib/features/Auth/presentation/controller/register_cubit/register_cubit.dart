@@ -14,10 +14,10 @@ class RegisterCubit extends Cubit<RegisterState> {
   String password = "";
   String email = "";
 
-  Future<void> login(
-      {required String email,
-      required String password,
-      required BuildContext context}) async {
+  Future<void> register({
+    required String email,
+    required String password,
+  }) async {
     try {
       emit(RegisterLoading());
 

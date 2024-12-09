@@ -8,32 +8,45 @@ class CustomTextField extends StatelessWidget {
     super.key,
     this.onChanged,
     this.hintText,
-    required this.icon, // Added controller parameter
     this.obscureText = false,
     this.onIconPressed,
+    this.onSaved,
+    required this.prefixIcon,
+    required this.suffixIcon,
+    this.autofillHints,
   });
   final String? hintText;
+  final Iterable<String>? autofillHints;
   final bool obscureText;
   final Function(String)? onChanged;
-  final IconData icon;
+  final Function(String?)? onSaved;
+  final IconData prefixIcon;
+  final IconData? suffixIcon;
   final VoidCallback? onIconPressed;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      autofillHints: autofillHints,
       validator: (data) {
         if (data!.isEmpty) {
           return 'Field is required';
         }
         return null;
       },
+      onSaved: onSaved,
       obscureText: obscureText,
       onChanged: onChanged,
       decoration: InputDecoration(
+        suffixIcon: IconButton(
+          onPressed: onIconPressed,
+          color: Colors.grey,
+          icon: Icon(suffixIcon, size: 19.sp),
+        ),
         prefixIcon: IconButton(
           onPressed: onIconPressed,
           color: Colors.grey,
-          icon: Icon(icon, size: 19.sp),
+          icon: Icon(prefixIcon, size: 19.sp),
         ),
         contentPadding: const EdgeInsets.symmetric(
           vertical: 18,

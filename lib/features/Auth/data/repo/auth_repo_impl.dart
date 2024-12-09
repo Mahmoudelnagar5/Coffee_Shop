@@ -4,7 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import '../../../../core/errors/failure.dart';
 import 'auth_repo.dart';
 
-class AuthRepoImp implements AuthRepo {
+class AuthRepoImpl implements AuthRepo {
   @override
   Future<Either<Failure, UserCredential>> signinfirebase(
       {required String email, required String password}) async {
