@@ -1,6 +1,8 @@
+import 'package:caffeine_corner/core/utils/app_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'custom_icon_button.dart';
+import '../../../../core/widgets/custom_button.dart';
 
 class CustomAppBar extends StatelessWidget {
   const CustomAppBar({
@@ -11,12 +13,14 @@ class CustomAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        CustomIconButton(
-          onTap: () {},
-          icon: Image.asset(
-            'assets/images/menu_icon.png',
-          ),
-        ),
+        CustomButton(
+            color: Apptheme.backgroundColor,
+            onTap: () {},
+            height: 40.h,
+            width: 40.w,
+            child: Image.asset(
+              'assets/images/menu_icon.png',
+            )),
         const Spacer(),
         ClipRRect(
           borderRadius: BorderRadius.circular(25),

@@ -138,13 +138,13 @@ class Apptheme {
     fontWeight: FontWeight.w400,
   );
 
-  // Chips TextStyle
-  static TextStyle chipActive = GoogleFonts.roboto(
+  // Category TextStyle
+  static TextStyle categoryActive = GoogleFonts.roboto(
     color: const Color(0xffD98046),
     fontSize: 14.sp,
     fontWeight: FontWeight.bold,
   );
-  static TextStyle chipInactive = GoogleFonts.roboto(
+  static TextStyle categoryInactive = GoogleFonts.roboto(
     color: const Color(0xff4C4F54),
     fontSize: 14.sp,
     fontWeight: FontWeight.bold,
