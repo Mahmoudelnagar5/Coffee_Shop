@@ -39,7 +39,7 @@ class Apptheme {
   // Style
   static TextStyle titleLarge = GoogleFonts.roboto(
     color: Colors.white,
-    fontSize: 30.sp,
+    fontSize: 24.sp,
     fontWeight: FontWeight.bold,
   );
   static TextStyle subTileLarge = GoogleFonts.roboto(

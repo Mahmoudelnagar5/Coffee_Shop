@@ -18,7 +18,7 @@ class DotsIndicator extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      alignment: const Alignment(0, 0.65),
+      alignment: Alignment(0, 0.65.h),
       child: SmoothPageIndicator(
         controller: controller,
         count: introductionItems.length,
