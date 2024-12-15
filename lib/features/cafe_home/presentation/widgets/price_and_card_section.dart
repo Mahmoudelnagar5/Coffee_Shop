@@ -9,9 +9,11 @@ class PriceAndCartSection extends StatelessWidget {
   const PriceAndCartSection({
     super.key,
     required this.coffee,
+    required this.text,
   });
 
   final CoffeeModel coffee;
+  final String text;
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +51,7 @@ class PriceAndCartSection extends StatelessWidget {
             height: 50.h,
             borderRadius: 16,
             color: Apptheme.buttonBackground1Color,
-            child: Text('Add to cart', style: Apptheme.buttonTextStyle),
+            child: Text(text, style: Apptheme.buttonTextStyle),
           ),
         ],
       ),

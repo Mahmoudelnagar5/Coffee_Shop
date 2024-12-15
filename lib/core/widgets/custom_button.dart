@@ -19,7 +19,7 @@ class CustomButton extends StatelessWidget {
     required this.onTap,
     this.borderRadius = 15,
     this.borderColor,
-    this.borderWidth = 3,
+    this.borderWidth = 2,
   });
 
   @override

@@ -42,7 +42,7 @@ class CafeDetailsView extends StatelessWidget {
                       const SizeChoiceView(),
                       const SizedBox(height: 30),
                       // Section -> Price and Add to Cart
-                      PriceAndCartSection(coffee: coffee),
+                      PriceAndCartSection(text: 'Add to Cart', coffee: coffee),
                     ],
                   ),
                 ),

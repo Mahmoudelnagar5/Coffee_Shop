@@ -1,77 +1,56 @@
-import 'package:caffeine_corner/features/cafe_home/data/models/coffee_model.dart';
+import 'package:caffeine_corner/features/cart/presentation/views/cart_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:stylish_bottom_bar/stylish_bottom_bar.dart';
 
 import '../../../../core/utils/app_theme.dart';
-import '../widgets/categories_list_view.dart';
-import '../widgets/coffee_card.dart';
-import '../widgets/custom_app_bar.dart';
-import '../widgets/search_widget.dart';
+import '../widgets/cafe_home_body.dart';
 
-class CafeHomeView extends StatelessWidget {
-  const CafeHomeView({super.key});
-  static const String routeName = '/cafe-home';
+class CafeMain extends StatefulWidget {
+  const CafeMain({super.key});
+  static const routeName = '/cafe-main';
+
+  @override
+  State<CafeMain> createState() => _CafeMainState();
+}
+
+class _CafeMainState extends State<CafeMain> {
+  int currentIndex = 0;
+  List<Widget> screens = [const CafeHomeView(), const CartView()];
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
         backgroundColor: Apptheme.backgroundColor,
-        body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 15),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const CustomAppBar(),
-              const SizedBox(height: 25),
-              Text(
-                'Find the best',
-                style: Apptheme.titleLarge,
-              ),
-              Text(
-                'coffee for you',
-                style: Apptheme.titleLarge,
-              ),
-              const SizedBox(height: 20),
-              const SearchWidget(),
-              const SizedBox(height: 20),
-              SizedBox(
-                height: 40.h,
-                child: const CategoriesListView(),
-              ),
-              const SizedBox(height: 20),
-              Expanded(
-                child: GridView.builder(
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    crossAxisSpacing: 10,
-                    mainAxisSpacing: 10,
-                    childAspectRatio: 0.75,
-                  ),
-                  itemCount: CoffeeModel.coffeeList.length, // Add itemCount
-                  itemBuilder: (context, index) => CoffeeCard(
-                    coffee: CoffeeModel.coffeeList[index],
-                  ),
-                ),
-              ),
-            ],
-          ),
+        body: screens[currentIndex],
+        bottomNavigationBar: CustomNavBar(
+          currentIndex: currentIndex,
+          onTap: (index) {
+            setState(() {
+              currentIndex = index;
+            });
+          },
         ),
-        bottomNavigationBar: const CustomNavBar(),
       ),
     );
   }
 }
 
 class CustomNavBar extends StatelessWidget {
-  const CustomNavBar({super.key});
+  const CustomNavBar({
+    super.key,
+    required this.currentIndex,
+    required this.onTap,
+  });
+
+  final int currentIndex;
+  final void Function(int) onTap;
 
   @override
   Widget build(BuildContext context) {
     const selectedColor = Apptheme.iconActiveColor;
     const unSelectedColor = Apptheme.iconColor;
-    const currentIndex = 0;
 
     return SizedBox(
       height: 60.h,
@@ -113,7 +92,7 @@ class CustomNavBar extends StatelessWidget {
         notchStyle: NotchStyle.circle,
         fabLocation: StylishBarFabLocation.center,
         currentIndex: currentIndex,
-        onTap: (index) {},
+        onTap: onTap,
         option: AnimatedBarOptions(
           iconSize: 25,
           barAnimation: BarAnimation.fade,

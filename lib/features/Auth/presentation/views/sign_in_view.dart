@@ -74,7 +74,7 @@ class _SignInViewState extends State<SignInView> {
                     if (state is LoginFailure) {
                       showSnackBar(context, state.errorMessage);
                     } else if (state is LoginSuccess) {
-                      Navigator.pushNamed(context, CafeHomeView.routeName);
+                      Navigator.pushNamed(context, CafeMain.routeName);
                     }
                   },
                   child: Form(
