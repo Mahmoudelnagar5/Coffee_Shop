@@ -9,6 +9,7 @@ import 'features/Auth/presentation/controller/login_cubit/login_cubit.dart';
 import 'features/Auth/presentation/controller/register_cubit/register_cubit.dart';
 import 'features/Auth/presentation/views/sign_in_view.dart';
 import 'features/Auth/presentation/views/sign_up_view.dart';
+import 'features/cafe_home/presentation/views/cafe_details_view.dart';
 import 'features/cafe_home/presentation/views/cafe_home_view.dart';
 import 'features/on_boarding/presentation/views/onboarding_view.dart';
 import 'features/splash/presentation/views/splash_view.dart';
@@ -54,6 +55,7 @@ class MyApp extends StatelessWidget {
               SignInView.routeName: (context) => const SignInView(),
               SignUpView.routeName: (context) => const SignUpView(),
               CafeHomeView.routeName: (context) => const CafeHomeView(),
+              CafeDetailsView.routeName: (context) => const CafeDetailsView(),
             },
           ),
         );

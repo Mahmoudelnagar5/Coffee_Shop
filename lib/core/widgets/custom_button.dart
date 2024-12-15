@@ -17,21 +17,27 @@ class CustomButton extends StatelessWidget {
     required this.color,
     required this.child,
     required this.onTap,
-    this.borderRadius = 13,
+    this.borderRadius = 15,
     this.borderColor,
-    this.borderWidth = 2,
+    this.borderWidth = 3,
   });
 
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
-      borderRadius: BorderRadius.circular(borderRadius),
+      borderRadius: BorderRadius.all(Radius.circular(borderRadius)),
       child: Material(
         color: color,
         child: InkWell(
           onTap: onTap,
           child: Container(
-            decoration: null,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.all(Radius.circular(borderRadius)),
+              border: Border.all(
+                color: borderColor ?? Colors.transparent,
+                width: borderWidth,
+              ),
+            ),
             width: width,
             height: height,
             child: Padding(
