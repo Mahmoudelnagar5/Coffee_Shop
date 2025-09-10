@@ -4,7 +4,9 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_stripe/flutter_stripe.dart';
 
+import 'core/utils/api_keys.dart';
 import 'features/Auth/presentation/controller/login_cubit/login_cubit.dart';
 import 'features/Auth/presentation/controller/register_cubit/register_cubit.dart';
 import 'features/Auth/presentation/views/sign_in_view.dart';
@@ -17,6 +19,7 @@ import 'features/splash/presentation/views/splash_view.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  Stripe.publishableKey = ApiKeys.publishableKey;
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );

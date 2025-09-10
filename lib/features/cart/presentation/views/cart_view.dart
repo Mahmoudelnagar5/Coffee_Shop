@@ -7,29 +7,25 @@ import '../widgets/custom_cart_bar.dart';
 
 class CartView extends StatelessWidget {
   const CartView({super.key});
+  static const String routeName = '/cart';
 
   @override
   Widget build(BuildContext context) {
+    final CoffeeModel coffee =
+        ModalRoute.of(context)!.settings.arguments as CoffeeModel;
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Column(
         children: [
           const CustomCartBar(),
-          const Expanded(
-            child: CartListView(),
+          Expanded(
+            child: CartListView(coffee: coffee),
           ),
           PriceAndCartSection(
             text: 'Checkout',
-            coffee: CoffeeModel(
-              name: 'test',
-              price: 100,
-              imageUrl: 'https://i.imgur.com/y6Fj8tu.jpg',
-              description: 'test',
-              ingredients: 'test',
-              rating: 4.5,
-              reviews: 'test',
-            ),
+            coffee: coffee,
           ),
+          const SizedBox(height: 25),
         ],
       ),
     );
@@ -37,14 +33,19 @@ class CartView extends StatelessWidget {
 }
 
 class CartListView extends StatelessWidget {
-  const CartListView({super.key});
+  const CartListView({
+    super.key,
+    required this.coffee,
+  });
+
+  final CoffeeModel coffee;
 
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
       itemCount: 5,
       shrinkWrap: true,
-      itemBuilder: (context, index) => const CartItem(),
+      itemBuilder: (context, index) => CartItem(coffee: coffee),
     );
   }
 }

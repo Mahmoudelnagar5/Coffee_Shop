@@ -22,15 +22,25 @@ class CustomAppBar extends StatelessWidget {
               'assets/images/menu_icon.png',
             )),
         const Spacer(),
-        ClipRRect(
-          borderRadius: BorderRadius.circular(25),
-          child: Image.network(
-            'https://i.imgur.com/uTjWuc8.jpg',
-            fit: BoxFit.fill,
-            height: 40,
-            width: 40,
-          ),
-        )
+        // CircleAvatar(
+        //   radius: 20.r,
+        //   backgroundColor: Apptheme.backgroundColor,
+        //   child: Image.asset(
+        //     'assets/images/mm.png',
+        //     fit: BoxFit.fill,
+        //     height: 40.h,
+        //     width: 40.w,
+        //   ),
+        // )
+        // ClipRRect(
+        //   borderRadius: BorderRadius.circular(25),
+        //   child: Image.asset(
+        //     'assets/images/mm.png',
+        //     fit: BoxFit.fill,
+        //     // height: 40,
+        //     // width: 40,
+        //   ),
+        // )
       ],
     );
   }

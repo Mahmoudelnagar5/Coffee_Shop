@@ -1,4 +1,5 @@
 import 'package:animate_do/animate_do.dart';
+import 'package:caffeine_corner/features/cafe_home/presentation/views/cafe_home_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -33,7 +34,7 @@ class _SplashViewState extends State<SplashView> with TickerProviderStateMixin {
 
   navgateToOnboarding() {
     Future.delayed(const Duration(seconds: 3), () {
-      Navigator.pushNamed(context, OnboardingView.routeName);
+      Navigator.pushNamed(context, CafeMain.routeName);
     });
   }
 

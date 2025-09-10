@@ -4,11 +4,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/utils/app_theme.dart';
+import '../../../cafe_home/data/models/coffee_model.dart';
 
 class CardItem extends StatelessWidget {
   const CardItem({
     super.key,
+    required this.coffee,
   });
+
+  final CoffeeModel coffee;
 
   @override
   Widget build(BuildContext context) {
@@ -36,9 +40,12 @@ class CardItem extends StatelessWidget {
                 child: SizedBox(
                   height: 135.h,
                   width: 115.w,
-                  child: Image.network(
-                    'https://i.imgur.com/y6Fj8tu.jpg',
-                    fit: BoxFit.cover,
+                  child: Hero(
+                    tag: 'coffee-image-${coffee.name}',
+                    child: Image.network(
+                      coffee.imageUrl,
+                      fit: BoxFit.cover,
+                    ),
                   ),
                 ),
               ),

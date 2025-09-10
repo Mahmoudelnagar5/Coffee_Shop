@@ -3,10 +3,16 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/utils/app_theme.dart';
 import '../../../../core/widgets/custom_button.dart';
+import '../../../cafe_home/data/models/coffee_model.dart';
 import 'card_item.dart';
 
 class CartItem extends StatelessWidget {
-  const CartItem({super.key});
+  const CartItem({
+    super.key,
+    required this.coffee,
+  });
+
+  final CoffeeModel coffee;
 
   @override
   Widget build(BuildContext context) {
@@ -29,9 +35,9 @@ class CartItem extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 10),
-              child: CardItem(),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10),
+              child: CardItem(coffee: coffee),
             ),
             Expanded(
               child: Column(

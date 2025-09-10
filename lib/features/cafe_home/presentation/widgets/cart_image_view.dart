@@ -24,9 +24,12 @@ class CardImageView extends StatelessWidget {
           child: SizedBox(
             width: double.infinity,
             height: double.infinity,
-            child: Image.network(
-              coffee.imageUrl,
-              fit: BoxFit.cover,
+            child: Hero(
+              tag: 'coffee-image-${coffee.name}',
+              child: Image.network(
+                coffee.imageUrl,
+                fit: BoxFit.cover,
+              ),
             ),
           ),
         ),
