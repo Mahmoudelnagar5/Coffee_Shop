@@ -29,11 +29,6 @@ A Flutter-based mobile application for ordering and purchasing coffee drinks. Ca
   - Flutter SVG for SVG support
 
 
-
-## 📱 Demo
-
-Check out the demo video: [Watch Demo](https://github.com/user-attachments/assets/5a30a870-6c8b-4dc0-9c6f-5e72f067cd99)
-
 ## Installation
 
 1. **Prerequisites**:
